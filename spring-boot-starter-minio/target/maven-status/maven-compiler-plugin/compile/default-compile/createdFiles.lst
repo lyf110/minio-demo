@@ -1,0 +1,9 @@
+META-INF\spring-configuration-metadata.json
+com\minio\config\OSSProperties.class
+com\minio\auto\config\MinioClientAutoConfiguration.class
+com\minio\entity\OssPolicy.class
+com\minio\entity\OssFile.class
+com\minio\entity\OssPolicy$Principal.class
+com\minio\http\MediaType.class
+com\minio\entity\OssPolicy$Statement.class
+com\minio\core\MinioTemplate.class

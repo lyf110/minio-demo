@@ -1,0 +1,6 @@
+com\minio\controller\MinioFileController.class
+com\minio\MinioDemoApplication.class
+com\minio\util\Md5Util.class
+com\minio\entity\StatusCode.class
+com\minio\util\FileTypeUtil.class
+com\minio\config\RedisConfig.class
