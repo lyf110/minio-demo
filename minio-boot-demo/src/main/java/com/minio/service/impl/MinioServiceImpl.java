@@ -41,14 +41,14 @@ import java.util.*;
 public class MinioServiceImpl implements MinioService {
 
     /**
-     * 存储视频的元数据
+     * 存储视频的元数据列表
      */
-    private static final String OBJECT_INFO_LIST = "com:minio:media:object:info:list";
+    private static final String OBJECT_INFO_LIST = "com:minio:media:objectList";
 
     /**
      * 已上传文件的md5列表
      */
-    private static final String MD5_KEY = "cn:lyf:minio:demo:file:md5List";
+    private static final String MD5_KEY = "com:minio:file:md5List";
 
     @Autowired
     private MinioTemplate minioTemplate;

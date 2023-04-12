@@ -17,7 +17,7 @@
 
 http://localhost:18002/file/home
 
-![image-20230412174116173](./assets/image-20230412174116173.png)
+![image-20230412174116173](https://lyf-md-static-img.oss-cn-hangzhou.aliyuncs.com/image/typora_2/202304121802311.png)
 
 
 
@@ -36,4 +36,4 @@ http://localhost:18002/video/home/{bucketName}/{objectName}
 
 http://localhost:18002/video/home/minio-demo/3fc25449-dac9-4fd6-ad35-053d0938a071.mp4
 
-![image-20230412174159387](./assets/image-20230412174159387.png)
+![image-20230412174159387](https://lyf-md-static-img.oss-cn-hangzhou.aliyuncs.com/image/typora_2/202304121802045.png)
