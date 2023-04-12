@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
 </head>
 <body>
 <script type="text/javascript" src="/js/jquery.js" th:src="@{/js/jquery.js}"></script>
 <script type="text/javascript" src="/js/spark-md5.min.js" th:src="@{/js/spark-md5.min.js}"></script>
-
+<script type="text/javascript" src="/js/base.js" th:src="@{/js/base.js}"></script>
 <input type="file" name="file" id="file">
 <script>
-    const baseUrl = "http://localhost:18002";
-
     /**
      * 分块计算文件的md5值
      * @param file 文件

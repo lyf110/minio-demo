@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>ckplayer</title>
+    <link rel="shortcut icon" href="#"/>
+    <link type="text/css" rel="stylesheet" href="/ckplayer/css/ckplayer.css" th:href="@{/ckplayer/css/ckplayer.css}"/>
+
+    <script type="text/javascript" src="/js/jquery.js" th:src="@{/js/jquery.js}"></script>
+
+    <!--
+        如果需要使用其它语言，请在此处引入相应的js,比如:<script type="text/javascript" src="ckplayer/language/en.js" charset="UTF-8"></script>
+    -->
+    <script type="text/javascript" src="/ckplayer/js/ckplayer.min.js" th:src="@{/ckplayer/js/ckplayer.min.js}"
+            charset="UTF-8"></script>
+
+    <script type="text/javascript" src="/js/base.js" th:src="@{/js/base.js}"></script>
+
+
+</head>
+<body>
+
+<div class="video" style="width: 100%; height: 500px;max-width: 800px;">播放容器</div>
+
+
+<p>官网：<a href="https://www.ckplayer.com" target="_blank">www.ckplayer.com</a></p>
+<p>手册：<a href="https://www.ckplayer.com/manual/" target="_blank">www.ckplayer.com/manual/</a></p>
+<p>社区：<a href="https://bbs.ckplayer.com/" target="_blank">bbs.ckplayer.com</a></p>
+<p>全功能演示：<a href="https://www.ckplayer.com/demo.html" target="_blank">www.ckplayer.com/demo.html</a></p>
+<p>控制示例：</p>
+<p>
+    <button type="button" onclick="player.play()">播放</button>
+    <button type="button" onclick="player.pause()">暂停</button>
+    <button type="button" onclick="player.seek(20)">跳转</button>
+    <button type="button" onclick="player.volume(0.6)">修改音量</button>
+    <button type="button" onclick="player.muted()">静音</button>
+    <button type="button" onclick="player.exitMuted()">恢复音量</button>
+    <button type="button" onclick="player.full()">全屏</button>
+    <button type="button" onclick="player.webFull()">页面全屏</button>
+    <button type="button" onclick="player.theatre()">剧场模式</button>
+    <button type="button" onclick="player.exitTheatre()">退出剧场模式</button>
+</p>
+<p id="state"></p>
+<p id="state2"></p>
+
+</body>
+
+<!--JS获取-->
+<script type="text/javascript" th:inline="javascript">
+    const bucketName = [[${bucketName}]];
+    const objectName = [[${objectName}]];
+</script>
+
+<script>
+
+    //调用开始
+    let videoObject = {
+        container: '.video',//视频容器的ID
+        volume: 0.8,//默认音量，范围0-1
+        video: 'http://localhost:18002/video/play/'+ bucketName + '/' + objectName,//视频地址
+    };
+    let player = new ckplayer(videoObject)//调用播放器并赋值给变量player
+    /*
+     * ===============================================================================================
+     * 以上代码已完成调用演示，下方的代码是演示监听动作和外部控制的部分
+     * ===============================================================================================
+     * ===============================================================================================
+     */
+    player.play(function () {
+        document.getElementById('state').innerHTML = '监听到播放';
+    });
+    player.pause(function () {
+        document.getElementById('state').innerHTML = '监听到暂停';
+    });
+    player.volume(function (vol) {
+        document.getElementById('state').innerHTML = '监听到音量改变：' + vol;
+    });
+    player.muted(function (b) {
+        document.getElementById('state2').innerHTML = '监听到静音状态：' + b;
+    });
+    player.full(function (b) {
+        document.getElementById('state').innerHTML = '监听到全屏状态：' + b;
+    });
+    player.ended(function () {
+        document.getElementById('state').innerHTML = '监听到播放结束';
+    });
+</script>
+</html>
